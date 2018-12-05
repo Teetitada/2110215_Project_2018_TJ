@@ -6,7 +6,7 @@ import scene.ResLoader;
 
 public class Hand extends Entity{
 	
-	private static final int LOADMAX = 400;
+	private int loadMax;
 	private boolean go;
 	private boolean back;
 	private boolean pick;
@@ -31,7 +31,8 @@ public class Hand extends Entity{
 		this.image = image;
 		this.image2 = image2;
 		this.player = player;
-		this.pickvelocity = 200;
+		this.loadMax = 400;
+		this.pickvelocity = 300;
 		this.load = 400;
 		this.step = 5;
 		if(player==1)
@@ -63,7 +64,7 @@ public class Hand extends Entity{
 	}
 	 
 	public void go() {
-		if(!back&&load>=LOADMAX){
+		if(!back&&load>=loadMax){
 			ResLoader.JumpSound.play();
 			this.load = 0;
 			this.go = true;	
@@ -105,9 +106,15 @@ public class Hand extends Entity{
 	public void setTotalScore(int score) {
 		this.totalScore = score;
 	}
-	
-	
-	
+		
+	public int getLoadMax() {
+		return loadMax;
+	}
+
+	public void setLoadMax(int loadMax) {
+		this.loadMax = loadMax;
+	}
+
 	public int getPickvelocity() {
 		return pickvelocity;
 	}
@@ -125,7 +132,7 @@ public class Hand extends Entity{
 					
 		}
 		else gc.drawImage(image, positionX, positionY, HAND_WIDTH, HAND_HEIGHT);		
-		if(!go && !back && !(load>=(LOADMAX-20)))
+		if(!go && !back && !(load>=(loadMax-20)))
 		{			
 			gc.drawImage(ResLoader.Load,positionX+32, positionY+35, 30, 30);
 		}

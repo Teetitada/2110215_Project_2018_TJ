@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 import model.Entity;
 import model.Hand;
 import model.Item;
+import model.LoadFaster;
 import model.PowerUp;
 import model.RottenSushi;
 import model.Salmon;
@@ -138,7 +139,12 @@ public class GameManager {
 		if (Math.random()<0.06){
         	double rdm = Math.random();  
         	
-        	if(rdm>0.00&&rdm<0.08){
+        	if(rdm>0.00&&rdm<0.04){
+        		Item loadfaster = new LoadFaster();
+        		Holder.getInstance().getFood().add(loadfaster);  
+        	}
+        	
+        	if(rdm>0.04&&rdm<0.08){
         		Item speedup = new SpeedUp();
         		Holder.getInstance().getFood().add(speedup);  
         	}
