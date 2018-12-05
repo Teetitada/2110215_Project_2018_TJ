@@ -27,11 +27,10 @@ public class GameManager {
 	
 	private static long lastNanoTime = System.nanoTime();
 	private static AnimationTimer timer;
-	private static double elapsedTime;
 	
 
 	public static void startGame() {
-		Holder.getInstance().setup(); // <<to be fix
+		Holder.getInstance().setup();
 //		score = 0;		
 		Holder.getInstance().getCounter().start();
 		timer = new AnimationTimer() {
@@ -54,7 +53,7 @@ public class GameManager {
                 	obj.update(elapsedTime);  
                 }
                 
-                if(Holder.getInstance().getCounter().current == 0 )
+                if(Holder.getInstance().getCounter().getCurrent() == 0 )
                 {
                 	ResLoader.AlarmTime.stop();
 	            	gameOver();
@@ -84,16 +83,7 @@ public class GameManager {
 	
 	private static void checkIntersects() {
 		int size = Holder.getInstance().getFood().size();
-		/*for(int i =0; i!=size; i++)
-		{
-			for(int j=i+1; j!=size; j++)
-			{
-				if((Holder.getInstance().getFood().get(i).intersects(Holder.getInstance().getFood().get(j))))
-				{
-					Holder.getInstance().getFood().get(j).setPositionY(-100);
-				}
-			}
-		}*/
+		
 		if(size>=2){
         	if((Holder.getInstance().getFood().get(size-2).intersects(Holder.getInstance().getFood().get(size-1))))
         	{        		
