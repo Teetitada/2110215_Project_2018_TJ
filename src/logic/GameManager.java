@@ -6,10 +6,13 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 import model.Entity;
 import model.Hand;
+import model.Item;
+import model.PowerUp;
 import model.RottenSushi;
 import model.Salmon;
 import model.SalmonRoe;
 import model.Shrim;
+import model.SpeedUp;
 import model.Sushi;
 import model.Tamago;
 import model.Tuna;
@@ -98,29 +101,24 @@ public class GameManager {
         		Holder.getInstance().getFood().remove(s);        		    		
         	}
         }
-		Iterator<Entity> foodIter = Holder.getInstance().getFood().iterator();
-        while ( foodIter.hasNext() )
+		Iterator<Item> itemIter = Holder.getInstance().getFood().iterator();
+        while ( itemIter.hasNext() )
         {
-            Entity obj = foodIter.next();
+            Item itemit = itemIter.next();
             
-            if ( Holder.getInstance().getHand().intersects(obj) ) {   
+            if ( Holder.getInstance().getHand().intersects(itemit) ) {   
+            	
             	Holder.getInstance().getHand().setPick(true);
-            	ResLoader.PickSound.play();
-            	
-            	/*if(obj instanceof Wasabi) {                    	
-	            	ResLoader.GameBgm.stop();
-	            	gameOver();
-	            	return;
-            	}*/
-            	
-            	if(obj instanceof Sushi ){
-	            	Sushi sushi = (Sushi) obj;
-	            	sushi.action(Holder.getInstance().getHand());	            	
-	            	foodIter.remove(); 
-            	}                      
-            }
+            	ResLoader.PickSound.play();         
+            	            	
+	            Item item = (Item) itemit;
+	            	item.action(Holder.getInstance().getHand());	            	
+	            	itemIter.remove(); 
+            }                     
             
-            if ( Holder.getInstance().getHand2().intersects(obj)) {   
+            
+            if ( Holder.getInstance().getHand2().intersects(itemit)) {   
+            	
             	Holder.getInstance().getHand2().setPick(true);
             	ResLoader.PickSound.play();
             	
@@ -128,13 +126,10 @@ public class GameManager {
 	            	ResLoader.GameBgm.stop();
 	            	gameOver();
 	            	return;
-            	}*/
-            	
-            	if(obj instanceof Sushi ) {
-            		Sushi sushi = (Sushi) obj;
-	            	sushi.action(Holder.getInstance().getHand2());
-	            	foodIter.remove(); 
-            	}                      
+            	}*/            	
+            	Item item = (Item) itemit;
+            	item.action(Holder.getInstance().getHand2());	            	
+            	itemIter.remove();                   
             }
         }     
 	}
@@ -143,38 +138,38 @@ public class GameManager {
 		if (Math.random()<0.06){
         	double rdm = Math.random();  
         	
-        	/*if(rdm>0.00&&rdm<0.08){
-        		Wasabi wasabi = new Wasabi();
-        		Holder.getInstance().getFood().add( wasabi );  
-        	}*/
+        	if(rdm>0.00&&rdm<0.08){
+        		Item speedup = new SpeedUp();
+        		Holder.getInstance().getFood().add(speedup);  
+        	}
         	
         	if(rdm>0.08&&rdm<0.18){
-	        	Sushi sushi = new RottenSushi();
+        		Item sushi = new RottenSushi();
 	        	Holder.getInstance().getFood().add( sushi );  
         	}
         	
         	if(rdm>0.18&&rdm<0.38){
-	    		Sushi sushi = new Tamago();
+        		Item sushi = new Tamago();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
         	if(rdm>0.38&&rdm<0.58) {
-	    		Sushi sushi = new Shrim();
+        		Item sushi = new Shrim();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
         	if(rdm>0.58&&rdm<0.78){
-	    		Sushi sushi = new SalmonRoe();
+        		Item sushi = new SalmonRoe();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
         	if(rdm>0.78&&rdm<0.93){
-	    		Sushi sushi = new Salmon();
+        		Item sushi = new Salmon();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
         	if(rdm>0.93&&rdm<1.000){
-	    		Sushi sushi = new Tuna();
+        		Item sushi = new Tuna();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}     
         	

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Entity;
 import model.Hand;
+import model.Item;
 import model.RottenSushi;
 import model.Salmon;
 import model.SalmonRoe;
@@ -23,7 +24,7 @@ public class Holder {
 
 	
 	private static ArrayList<String> input;
-    private static ArrayList<Entity> food;
+    private static ArrayList<Item> item;
     
     private Hand hand;
     private Hand hand2;
@@ -32,7 +33,7 @@ public class Holder {
     public Holder() {
 
     	input = new ArrayList<String>();
-    	food = new ArrayList<Entity>();
+    	item = new ArrayList<Item>();
     }
     
     public static Holder getInstance () {
@@ -49,15 +50,15 @@ public class Holder {
     protected void reset() {
     	GameScene = null;
     	input.clear();
-    	food.clear();
+    	item.clear();
     }
     
     public ArrayList<String> getInput(){
     	return input;
     }
 
-	public ArrayList<Entity> getFood() {
-		return food;
+	public ArrayList<Item> getFood() {
+		return item;
 	}
 	
 

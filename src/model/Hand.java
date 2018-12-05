@@ -10,6 +10,8 @@ public class Hand extends Entity{
 	private boolean go;
 	private boolean back;
 	private boolean pick;
+	private int step;
+	private int pickvelocity;
 	private int totalScore;
 	private int load;	
 	private static int HAND_WIDTH = 80;
@@ -29,7 +31,9 @@ public class Hand extends Entity{
 		this.image = image;
 		this.image2 = image2;
 		this.player = player;
+		this.pickvelocity = 200;
 		this.load = 400;
+		this.step = 5;
 		if(player==1)
 		{
 			this.positionX = 250;
@@ -50,12 +54,12 @@ public class Hand extends Entity{
 	
 	public void left() {
 	 	if(positionX<0||go||back) return;		 	
-        positionX -= 5;	        
+        positionX -= step;	        
     }
 
 	public void right() {
 		 if(positionX>730||go||back) return;		 	
-		 positionX += 5;	        
+		 positionX += step;	        
 	}
 	 
 	public void go() {
@@ -63,7 +67,7 @@ public class Hand extends Entity{
 			ResLoader.JumpSound.play();
 			this.load = 0;
 			this.go = true;	
-			this.velocityY = -300;
+			this.velocityY = -pickvelocity;
 		}		
 	}
 	
@@ -71,7 +75,7 @@ public class Hand extends Entity{
 		if(go && positionY<200) {
 			this.go = false;
 			this.back = true;
-			this.velocityY = 300;			
+			this.velocityY = pickvelocity;			
 			this.pick = false;
 		}		
 	}
@@ -101,6 +105,16 @@ public class Hand extends Entity{
 	public void setTotalScore(int score) {
 		this.totalScore = score;
 	}
+	
+	
+	
+	public int getPickvelocity() {
+		return pickvelocity;
+	}
+
+	public void setPickvelocity(int pickvelocity) {
+		this.pickvelocity = pickvelocity;
+	}
 
 	@Override
 	public void render(GraphicsContext gc) {
@@ -117,13 +131,13 @@ public class Hand extends Entity{
 		}
 		if(player ==1)
 		{
-			String text = "Blue Score:" + totalScore;
+			String text = "Blue Score: " + totalScore;
 			gc.fillText( text, 10, 50);
 			gc.strokeText( text, 10, 50 );
 		}
 		if(player ==2)
 		{
-			String text = "Red Score:" + totalScore;
+			String text = "Red Score: " + totalScore;
 			gc.fillText( text, 450, 50);
 			gc.strokeText( text, 450, 50 );
 		}
@@ -136,6 +150,14 @@ public class Hand extends Entity{
 
 	public void setPick(boolean pick) {
 		this.pick = pick;
+	}
+
+	public int getStep() {
+		return step;
+	}
+
+	public void setStep(int step) {
+		this.step = step;
 	}
 
 	

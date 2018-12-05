@@ -5,7 +5,7 @@ import model.Renderable;
 import scene.ResLoader;
 
 public class Counter extends Thread implements Renderable{
-	int current = 30;	
+	int current = 100;	
 	public void run() {
 		while(current>0) {
 		try {						
