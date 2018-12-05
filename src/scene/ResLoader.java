@@ -6,7 +6,7 @@ import javafx.scene.media.AudioClip;
 public class ResLoader {
 	
 	//MENU VISUAL
-	public static Image MenuImg, PlayBtn1, PlayBtn2;
+	public static Image MenuImg, PlayBtn1, PlayBtn2, MovingBG;
 	public static AudioClip MenuBgm;
 	
 	//OBJECT VISUAL
@@ -24,6 +24,7 @@ public class ResLoader {
 	
 	public static void loadResource() {
 		//Load MENU
+		MovingBG = new Image(ClassLoader.getSystemResource("img/newbackground.gif").toString());
 		MenuBgm = new AudioClip(ClassLoader.getSystemResource("audio/Santorini_2.mp3").toString());
 		MenuImg = new Image(ClassLoader.getSystemResource("img/MovingBG.gif").toString());
 		Logo = new Image(ClassLoader.getSystemResource("img/logo.png").toString());

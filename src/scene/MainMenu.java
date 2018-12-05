@@ -25,7 +25,7 @@ public class MainMenu extends Pane {
 //		gc.drawImage(ResLoader.MenuImg, 0, 0, SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 //		getChildren().add(menuBG);
 		
-		Image i = ResLoader.MenuImg;
+		Image i = ResLoader.MovingBG;
 		iv.setImage(i);
 		getChildren().add(iv);
 		
