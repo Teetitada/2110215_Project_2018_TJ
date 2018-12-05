@@ -136,15 +136,15 @@ public class Hand extends Entity{
 		{			
 			gc.drawImage(ResLoader.Load,positionX+32, positionY+35, 30, 30);
 		}
-		if(player ==1)
+		if(player == 1)
 		{
-			String text = "Blue Score: " + totalScore;
+			String text = " Blue Score: " + totalScore;
 			gc.fillText( text, 10, 50);
 			gc.strokeText( text, 10, 50 );
 		}
-		if(player ==2)
+		if(player == 2)
 		{
-			String text = "Red Score: " + totalScore;
+			String text = " Red Score: " + totalScore;
 			gc.fillText( text, 450, 50);
 			gc.strokeText( text, 450, 50 );
 		}

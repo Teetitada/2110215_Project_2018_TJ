@@ -13,21 +13,15 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-//			BorderPane root = new BorderPane();
-//			Scene scene = new Scene(root,800,500);
 			
-			ResLoader.loadResource();//<<<<< added
-			
-			//auto-gen
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
+			ResLoader.loadResource();
+						
 			SceneManager.initialize(primaryStage);
 			SceneManager.gotoMainMenu();
 			
 			primaryStage.setTitle("Ewww!! WASABI");
-//			primaryStage.setScene(scene);
 			primaryStage.centerOnScreen();
-//			primaryStage.show();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

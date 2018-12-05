@@ -40,19 +40,23 @@ public class GameManager {
 				// TODO Auto-generated method stub
 				double elapsedTime = (currentNanoTime - lastNanoTime) / 1000000000.0;				
                 lastNanoTime = currentNanoTime;
+                
                 Holder.getInstance().getHand().setLoad(Holder.getInstance().getHand().getLoad()+2);
                 Holder.getInstance().getHand2().setLoad(Holder.getInstance().getHand2().getLoad()+2);
                 Holder.getInstance().getGameScene().paintComponent();
+                
                 checkInput(elapsedTime);
                 autoAddSushi();
-                checkIntersects();                
+                checkIntersects();               
+                
                 for (Entity obj : Holder.getInstance().getFood() )
                 {
                 	obj.update(elapsedTime);  
                 }
+                
                 if(Holder.getInstance().getCounter().current == 0 )
                 {
-                	ResLoader.GameBgm.stop();
+                	ResLoader.AlarmTime.stop();
 	            	gameOver();
 	            	return;                   	
                 }
@@ -61,11 +65,7 @@ public class GameManager {
 		};
 		timer.start();
 	}
-	
-//	private static void update() {
-//		
-//	}
-	
+		
 	private static void checkInput(double elapsedTime) {
 		
 		// game logic  
@@ -121,13 +121,8 @@ public class GameManager {
             if ( Holder.getInstance().getHand2().intersects(itemit)) {   
             	
             	Holder.getInstance().getHand2().setPick(true);
-            	ResLoader.PickSound.play();
+            	ResLoader.PickSound.play();  
             	
-            	/*if(obj instanceof Wasabi){                    	
-	            	ResLoader.GameBgm.stop();
-	            	gameOver();
-	            	return;
-            	}*/            	
             	Item item = (Item) itemit;
             	item.action(Holder.getInstance().getHand2());	            	
             	itemIter.remove();                   
@@ -184,13 +179,14 @@ public class GameManager {
 	
 	private static void gameOver() {
 		timer.stop();
-		Pane gameOver = new GameOver(Holder.getInstance().getHand().getTotalScore()); // <<to be fixed later
-		Holder.getInstance().reset(); // <<to be fix
+		ResLoader.AlarmTime.stop();
+		Pane gameOver = new GameOver(Holder.getInstance().getHand2().getTotalScore(),
+				Holder.getInstance().getHand().getTotalScore()); // <<hand2=red, hand1=blue
+
+		Holder.getInstance().reset();
+		ResLoader.GameOver.play();
 		SceneManager.gotoSceneOf(gameOver);
 	}
 	
-	public static double getElapsetime() {
-		return elapsedTime;
-	}
 
 }

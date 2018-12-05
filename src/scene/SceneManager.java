@@ -20,12 +20,12 @@ public class SceneManager {
 		primaryStage = stage;
 		primaryStage.setResizable(false);
 		primaryStage.show();
-//		ResLoader.bgmSound.play(); //<< to be added
+		ResLoader.MenuBgm.play();
 	}
 	
 	public static void gotoMainMenu() {
 //		ResLoader.bgmSound.stop(); //
-//		ResLoader.bgmSound.play(); // << to be added
+		ResLoader.MenuBgm.play();
 		primaryStage.setScene(mainMenuScene);
 	}
 	
@@ -38,8 +38,8 @@ public class SceneManager {
 	}
 	
 	public static void goToGameScene() {
-//		ResLoader.bgmSound.stop(); //<< to be add
-		GameManager.startGame(); // << to be fix		
+		ResLoader.MenuBgm.stop();
+		GameManager.startGame();		
 		Scene gameScene = new Scene(Holder.getInstance().getGameScene());
 		primaryStage.setScene(gameScene);
 		

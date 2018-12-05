@@ -25,7 +25,7 @@ public class MainMenu extends Pane {
 //		gc.drawImage(ResLoader.MenuImg, 0, 0, SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 //		getChildren().add(menuBG);
 		
-		Image i = new Image(ClassLoader.getSystemResource("img/MovingBG.gif").toString());
+		Image i = ResLoader.MenuImg;
 		iv.setImage(i);
 		getChildren().add(iv);
 		
@@ -33,12 +33,8 @@ public class MainMenu extends Pane {
 		Canvas MainLabel = new Canvas(SceneManager.SCENE_WIDTH,300);
 		GraphicsContext gc = MainLabel.getGraphicsContext2D();
 		
-		gc.drawImage(ResLoader.Logo, 300, 100, 200,100);
-		gc.setFill(Color.WHITE);
-		gc.setTextBaseline(VPos.CENTER);
-		gc.setTextAlign(TextAlignment.CENTER);
-		//gc.fillText("Ewww! WASABI", SceneManager.SCENE_WIDTH/2, 150);
-		//gc.strokeText("Ewww! WASABI", SceneManager.SCENE_WIDTH/2, 150);
+		gc.drawImage(ResLoader.Logo, 250, 70, 300,150);
+		
 		
 		changeCenter(MainLabel, 0, 0);
 		getChildren().add(MainLabel);

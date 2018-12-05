@@ -7,10 +7,12 @@ public class ResLoader {
 	
 	//MENU VISUAL
 	public static Image MenuImg, PlayBtn1, PlayBtn2;
+	public static AudioClip MenuBgm;
 	
 	//OBJECT VISUAL
 	public static AudioClip GameBgm;
 	public static AudioClip PickSound, JumpSound, GameOver;
+	public static AudioClip AlarmTime;
 	public static Image BlueHand1, BlueHand2, RedHand1, RedHand2;
 	public static Image RottenSushi, SalmonRoe, Salmon, Tamago, Shrim, Tuna;
 	public static Image Speedup, LoadFaster;
@@ -22,16 +24,17 @@ public class ResLoader {
 	
 	public static void loadResource() {
 		//Load MENU
-		MenuImg = new Image(ClassLoader.getSystemResource("img/MainBG.jpg").toString());
+		MenuBgm = new AudioClip(ClassLoader.getSystemResource("audio/Santorini_2.mp3").toString());
+		MenuImg = new Image(ClassLoader.getSystemResource("img/MovingBG.gif").toString());
 		Logo = new Image(ClassLoader.getSystemResource("img/logo.png").toString());
 		PlayBtn1 = new Image(ClassLoader.getSystemResource("img/PlayBtn1.png").toString());
 		PlayBtn2 = new Image(ClassLoader.getSystemResource("img/PlayBtn2.png").toString());
 		
 		//Load Game(Process)
 		GameBgm = new AudioClip(ClassLoader.getSystemResource("audio/Splashing_Around.mp3").toString());
+		AlarmTime = new AudioClip(ClassLoader.getSystemResource("audio/Alarm_Clock.mp3").toString());
 		PickSound = new AudioClip(ClassLoader.getSystemResource("audio/pick.wav").toString());
 		JumpSound = new AudioClip(ClassLoader.getSystemResource("audio/jump.wav").toString());
-		GameOver = new AudioClip(ClassLoader.getSystemResource("audio/gameover.wav").toString());
 		
 		Counter = new Image(ClassLoader.getSystemResource("img/progress5.gif").toString());
 		
@@ -57,6 +60,7 @@ public class ResLoader {
 		
 		
 		//Load GameOver
+		GameOver = new AudioClip(ClassLoader.getSystemResource("audio/gameover.wav").toString());
 		GameOverImg = new Image(ClassLoader.getSystemResource("img/GameOverBG.jpg").toString());
 		ReplayBtn1 = new Image(ClassLoader.getSystemResource("img/ReplayBtn1.png").toString());
 		ReplayBtn2 = new Image(ClassLoader.getSystemResource("img/ReplayBtn2.png").toString());
