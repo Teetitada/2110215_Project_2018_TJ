@@ -2,32 +2,18 @@ package model;
 
 import scene.ResLoader;
 
-public class Sushi extends Entity {
+public class Sushi extends Item {
 	
-	private final double SUSHI_WIDTH = 100;
-	private final double SUSHI_HEIGHT = 100;
-	
-	protected int score;
-	
-	public Sushi() {
-		this.positionX = 900;
-		this.positionY = 200;
-		this.velocityX = -200;
-		this.velocityY = 0;
-		this.width = SUSHI_WIDTH;
-	    this.height = SUSHI_HEIGHT;  	    
-	}
+	protected int score;	
 
 	public int getScore() {
 		return score;
 	}
 
-	public double getSUSHI_WIDTH() {
-		return SUSHI_WIDTH;
-	}
-
-	public double getSUSHI_HEIGHT() {
-		return SUSHI_HEIGHT;
+	@Override
+	public void action(Hand hand) {
+		// TODO Auto-generated method stub
+		hand.setTotalScore(hand.getTotalScore()+score);	
 	}
 	
 	

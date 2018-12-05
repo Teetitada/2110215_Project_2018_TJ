@@ -115,8 +115,7 @@ public class GameManager {
             	
             	if(obj instanceof Sushi ){
 	            	Sushi sushi = (Sushi) obj;
-	            	Holder.getInstance().getHand().setTotalScore(
-	            			Holder.getInstance().getHand().getTotalScore() + sushi.getScore());
+	            	sushi.action(Holder.getInstance().getHand());	            	
 	            	foodIter.remove(); 
             	}                      
             }
@@ -132,9 +131,8 @@ public class GameManager {
             	}*/
             	
             	if(obj instanceof Sushi ) {
-	            	Sushi sushi = (Sushi) obj;
-	            	Holder.getInstance().getHand2().setTotalScore(
-	            			Holder.getInstance().getHand2().getTotalScore() + sushi.getScore());
+            		Sushi sushi = (Sushi) obj;
+	            	sushi.action(Holder.getInstance().getHand2());
 	            	foodIter.remove(); 
             	}                      
             }
