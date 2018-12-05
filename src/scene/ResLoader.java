@@ -13,6 +13,7 @@ public class ResLoader {
 	public static AudioClip PickSound, JumpSound, GameOver;
 	public static Image BlueHand1, BlueHand2, RedHand1, RedHand2;
 	public static Image RottenSushi, SalmonRoe, Salmon, Tamago, Shrim, Tuna;
+	public static Image Speedup;
 	public static Image GameBg, Bar;
 	public static Image Load, Counter;
 	public static Image Logo;
@@ -44,11 +45,13 @@ public class ResLoader {
 		GameBg = new Image(ClassLoader.getSystemResource("img/wood.jpg").toString());
 		Bar = new Image(ClassLoader.getSystemResource("img/bar4.jpg").toString());
 		
+		Speedup = new Image(ClassLoader.getSystemResource("img/speedup.png").toString());
 		RottenSushi = new Image(ClassLoader.getSystemResource("img/rotten.png").toString());
 		SalmonRoe = new Image(ClassLoader.getSystemResource("img/salmonroe.png").toString());
 		Shrim = new Image(ClassLoader.getSystemResource("img/shrim.png").toString());
 		Tamago = new Image(ClassLoader.getSystemResource("img/tamago.png").toString());
 		Tuna = new Image(ClassLoader.getSystemResource("img/tuna.png").toString());
+		Salmon = new Image(ClassLoader.getSystemResource("img/salmon.png").toString());
 		
 		
 		//Load GameOver

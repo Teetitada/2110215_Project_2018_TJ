@@ -22,8 +22,7 @@ public class Counter extends Thread implements Renderable{
 	}	
 	
 	@Override
-	public void render(GraphicsContext gc){	
-		gc.drawImage(ResLoader.Counter, 375, 15, 50,50);
+	public void render(GraphicsContext gc){
 		String text = "" + current;
 		gc.fillText( text, 383, 50);
 		gc.strokeText( text, 383, 50);   

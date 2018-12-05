@@ -170,12 +170,12 @@ public class GameManager {
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
-        	if(rdm>0.78&&rdm<0.85){
+        	if(rdm>0.78&&rdm<0.93){
 	    		Sushi sushi = new Salmon();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}
         	
-        	if(rdm>0.85&&rdm<1.000){
+        	if(rdm>0.93&&rdm<1.000){
 	    		Sushi sushi = new Tuna();
 	    		Holder.getInstance().getFood().add( sushi );  
     		}     
