@@ -17,7 +17,6 @@ public class GameOver extends Pane {
 	private final double BTN_WIDTH = 75;
 	private final double BTN_HEIGHT = 75;
 	
-//	private Canvas bgCanvas = new Canvas(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 	private Canvas replayBtn;
 	private Canvas homeBtn;
 	private Canvas field, gameOverLabel, result;

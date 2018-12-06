@@ -24,7 +24,6 @@ public class GameScene extends Pane {
 	public final static double GAME_HEIGHT = 500;
 	
 	protected static Canvas canvas, canvas2;
-//	protected Image gameBG;
 	
 	public GraphicsContext gc, gc2;
 	
@@ -51,31 +50,6 @@ public class GameScene extends Pane {
 		gc.drawImage(ResLoader.Bar, 0, 0);
 	}
 	
-	/*private void setEvent() {		
-		this.setOnMousePressed((MouseEvent event) -> {
-			Holder.getInstance().getInput().add("UP");
-		});
-		this.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			
-			@Override			
-			public void handle(KeyEvent e) {
-				// TODO Auto-generated method stub
-				 String code = e.getCode().toString();
-				 System.out.println("aaaa");
-                 if ( !Holder.getInstance().getInput().contains(code) )
-                     Holder.getInstance().getInput().add( code );
-			}			
-		});
-		
-		this.setOnKeyReleased(new EventHandler<KeyEvent>() {
-			@Override
-			public void handle(KeyEvent e) {
-				// TODO Auto-generated method stub
-				String code = e.getCode().toString();
-                Holder.getInstance().getInput().remove( code );
-			}			
-		});
-	}*/
 	
 	public void paintComponent() {
 		

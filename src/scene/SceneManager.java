@@ -13,7 +13,7 @@ public class SceneManager {
 	public static final double SCENE_WIDTH = 800;
 	public static final double SCENE_HEIGHT = 500;
 	
-	private static Pane mainMenu = new MainMenu(); //<<fixed
+	private static Pane mainMenu = new MainMenu();
 	private static Scene mainMenuScene = new Scene(mainMenu,SCENE_WIDTH,SCENE_HEIGHT);
 	
 	public static void initialize(Stage stage) {
@@ -24,15 +24,12 @@ public class SceneManager {
 	}
 	
 	public static void gotoMainMenu() {
-//		ResLoader.bgmSound.stop(); //
+		ResLoader.GameOver.stop();
 		ResLoader.MenuBgm.play();
 		primaryStage.setScene(mainMenuScene);
 	}
 	
 	public static void gotoSceneOf(Pane pane) {
-//		ResLoader.bgmSound.stop();
-//		ResLoader.bgmSound.play(); //<< to be added
-		
 		Scene sceneToGo = new Scene(pane,SCENE_WIDTH,SCENE_HEIGHT);	
 		primaryStage.setScene(sceneToGo);
 	}

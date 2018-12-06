@@ -17,13 +17,9 @@ public class MainMenu extends Pane {
 	private final double BTN_WIDTH = 100;
 	private final double BTN_HEIGHT = 100;
 	private Canvas playBtn;
-//	private Canvas menuBG = new Canvas(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 	private ImageView iv = new ImageView();
 	
 	public MainMenu() {
-//		GraphicsContext gc = menuBG.getGraphicsContext2D();
-//		gc.drawImage(ResLoader.MenuImg, 0, 0, SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
-//		getChildren().add(menuBG);
 		
 		Image i = ResLoader.MovingBG;
 		iv.setImage(i);

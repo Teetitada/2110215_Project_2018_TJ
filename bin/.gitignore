@@ -1,5 +1,4 @@
-/application/
+/model/
 /scene/
 /logic/
-/model/
-/img/
+/exception/
