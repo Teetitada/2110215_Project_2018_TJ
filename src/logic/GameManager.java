@@ -45,14 +45,9 @@ public class GameManager {
                 Holder.getInstance().getHand2().setLoad(Holder.getInstance().getHand2().getLoad()+2);
                 Holder.getInstance().getGameScene().paintComponent();
                 
-                try {
-					checkInput(elapsedTime);
-				} catch (LoadTimeException e) {
-					// TODO Auto-generated catch block
-					System.out.println(e.getErrorMessage());
-				}
-                
-                autoAddSushi();
+
+				checkInput(elapsedTime);			
+                autoAddItem();
                 checkIntersects();               
                 
                 for (Entity obj : Holder.getInstance().getFood() )
@@ -72,16 +67,29 @@ public class GameManager {
 		timer.start();
 	}
 		
-	private static void checkInput(double elapsedTime) throws LoadTimeException {
+	private static void checkInput(double elapsedTime) {
 		
 		// game logic  
-        if (Holder.getInstance().getInput().contains("UP")) Holder.getInstance().getHand2().go();
+        if (Holder.getInstance().getInput().contains("UP")) {
+        	try {
+        		Holder.getInstance().getHand2().go();
+        	} catch (LoadTimeException e) {
+        		System.out.println(e.getErrorMessage());
+        	}
+        }
+        
         if (Holder.getInstance().getInput().contains("LEFT")) Holder.getInstance().getHand2().left();                   
         if (Holder.getInstance().getInput().contains("RIGHT")) Holder.getInstance().getHand2().right();                   
         // render
         Holder.getInstance().getHand().update(elapsedTime);
         
-        if (Holder.getInstance().getInput().contains("W")) Holder.getInstance().getHand().go(); 
+        if (Holder.getInstance().getInput().contains("W"))
+	        try {
+	    		Holder.getInstance().getHand().go();
+	    	} catch (LoadTimeException e) {
+	    		System.out.println(e.getErrorMessage());
+	    }
+        
         if (Holder.getInstance().getInput().contains("A")) Holder.getInstance().getHand().left();                   
         if (Holder.getInstance().getInput().contains("D")) Holder.getInstance().getHand().right();
         
@@ -127,7 +135,7 @@ public class GameManager {
         }     
 	}
 	
-	private static void autoAddSushi() {
+	private static void autoAddItem() {
 		if (Math.random()<0.06){
         	double rdm = Math.random();  
         	

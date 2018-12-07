@@ -1,5 +1,6 @@
 package model;
 
+import exception.LoadTimeException;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import scene.ResLoader;
@@ -63,13 +64,13 @@ public class Hand extends Entity{
 		 positionX += step;	        
 	}
 	 
-	public void go() {
+	public void go() throws LoadTimeException {
 		if(!back&&load>=loadMax){
 			ResLoader.JumpSound.play();
 			this.load = 0;
 			this.go = true;	
 			this.velocityY = -pickvelocity;
-		}		
+		} else throw new LoadTimeException();		
 	}
 	
 	public void checkGo() {
